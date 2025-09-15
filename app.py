@@ -25,7 +25,7 @@ def home():
         label = sentiment[0]['label']
         label = label_map[label]
         result = f"Sentiment : {sentiment}"
-    return render_template("index.html", result=result ,label = label)
+    return render_template("index.html", text=comment[0], result=result ,label = label)
 
 if __name__ == '__main__':
     app.run(debug=True)

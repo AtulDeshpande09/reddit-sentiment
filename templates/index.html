@@ -56,10 +56,13 @@
         </form>
 
         {% if result  %}
+        <div> {{ text }}
+        </div>
         <div>
-            <p>Sentiment : </p> {{ label }}
+            <p>Sentiment : {{ label }} </p>
         </div>
         <div class="result">
+            <p>Result ( probability ) : </p>
             {{ result }}
         </div>
         {% endif %}
