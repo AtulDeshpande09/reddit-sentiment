@@ -16,16 +16,21 @@ label_map = {"LABEL_0":"Negative", "LABEL_1":"Neutral", "LABEL_2": "Positive"}
 @app.route('/', methods=["GET", "POST"])
 def home():
     result = None
+    text = None
+    label = None
     if request.method == "POST":
         comment = request.form.get("comment")
+        text = comment
+        
         comment = [comment]
+
         
         sentiment = sentiment_pipeline(comment)
-        
+        print(text)
         label = sentiment[0]['label']
         label = label_map[label]
         result = f"Sentiment : {sentiment}"
-    return render_template("index.html", text=comment[0], result=result ,label = label)
+    return render_template("index.html", text=text, result=result ,label = label)
 
 if __name__ == '__main__':
     app.run(debug=True)
