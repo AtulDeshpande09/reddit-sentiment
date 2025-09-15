@@ -55,7 +55,10 @@
             <button type="submit">Submit</button>
         </form>
 
-        {% if result %}
+        {% if result  %}
+        <div>
+            <p>Sentiment : </p> {{ label }}
+        </div>
         <div class="result">
             {{ result }}
         </div>
